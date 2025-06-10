@@ -1,0 +1,2 @@
+# resume
+angular frontend resume
