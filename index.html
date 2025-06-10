@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivam Sharma - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            position: relative;
+        }
+        
+        .profile-circle {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 80px;
+            background: #4285f4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .name {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        
+        .title {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            font-size: 14px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            padding: 40px 30px;
+        }
+        
+        .left-column {
+            padding-right: 20px;
+        }
+        
+        .right-column {
+            padding-left: 20px;
+            border-left: 2px solid #e0e0e0;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+        
+        .summary-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+        
+        .job {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .job:last-child {
+            border-bottom: none;
+        }
+        
+        .job-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .company {
+            font-size: 16px;
+            color: #4285f4;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .job-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .job-description {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 12px;
+        }
+        
+        .achievements {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .achievements li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #555;
+        }
+        
+        .achievements li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4285f4;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .cert-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #4285f4;
+        }
+        
+        .cert-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .cert-details {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+        }
+        
+        .skill-item {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 500;
+            color: #2c3e50;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            background: #4285f4;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .right-column {
+                border-left: none;
+                border-top: 2px solid #e0e0e0;
+                padding-left: 0;
+                padding-top: 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .profile-circle {
+                position: static;
+                transform: none;
+                margin-top: 20px;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <div class="profile-circle">SS</div>
+            <h1 class="name">SHIVAM SHARMA</h1>
+            <p class="title">Software Development Engineer</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>8439222445</span>
+                </div>
+                <div class="contact-item">
+                    <span>✉️</span>
+                    <span>shivam.upmanu12@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <span>github.com/shivshar1</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="left-column">
+                <div class="section">
+                    <h2 class="section-title">Summary</h2>
+                    <p class="summary-text">
+                        I am a skilled Software Development Engineer with extensive experience in developing high-performance applications using Angular and React. I excel at creating dynamic, responsive interfaces that drive user engagement and satisfaction through effective UI designs and architecture. My work has enabled me to work on diverse projects that have significantly impacted both user experience and corporate processes.
+                    </p>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Experience</h2>
+                    
+                    <div class="job">
+                        <h3 class="job-title">Software Development Engineer</h3>
+                        <p class="company">Dhwani RIS</p>
+                        <div class="job-meta">
+                            <span>📅 04/2022 - 01/2024</span>
+                            <span>📍 Gurugram</span>
+                        </div>
+                        <p class="job-description">
+                            A product development role with a focus on user-focused applications.
+                        </p>
+                        <ul class="achievements">
+                            <li>Developed a highly effective product using Angular, leading to a 75% increase in user engagement</li>
+                            <li>Designed and optimized front-end interfaces with JavaScript, TypeScript, HTML, and CSS, enhancing user experience by 40%</li>
+                            <li>Applied responsive design principles, resulting in a 50% increase in user satisfaction and engagement</li>
+                            <li>Implemented advanced features such as DOM handling, enabling data-driven insights for social impact initiatives</li>
+                            <li>Improved application performance by 60% through implementation of lazy loading and code splitting techniques</li>
+                            <li>Utilized RxJS to optimize performance-critical components, enhancing overall application efficiency</li>
+                            <li>Developed and deployed a CRM budget management system adopted by corporations including HDFC, Bajaj, and others</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <h3 class="job-title">Software Development Engineer</h3>
+                        <p class="company">Enveu</p>
+                        <div class="job-meta">
+                            <span>📅 09/2021 - 03/2022</span>
+                            <span>📍 Noida</span>
+                        </div>
+                        <p class="job-description">
+                            A software development company focused on cutting-edge technology solutions.
+                        </p>
+                        <ul class="achievements">
+                            <li>Spearheaded development for OGBX, enhancing streaming features and parental controls</li>
+                            <li>Optimized application performance through lazy loading strategies, increasing rendering speed by 40%</li>
+                            <li>Engineered responsive UI components, reducing maintenance effort by 25% and increasing code reusability by 30%</li>
+                            <li>Developed usage analysis tools for user behavior reporting to stakeholders</li>
+                            <li>Increased application responsiveness by 40% with reactive forms and optimized component loading</li>
+                            <li>Improved user experience through intuitive notifications, enhancing user experience by reducing login time by 25%</li>
+                            <li>Served as Primary/Secondary On-Call Engineer, maintaining 100% uptime with no major disruptions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="section">
+                    <h2 class="section-title">Certification</h2>
+                    
+                    <div class="cert-item">
+                        <div class="cert-title">Angular (Basic) Certificate</div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-title">Node.js, Express, MongoDB & More: The Complete Bootcamp</div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-title">MongoDB for SQL Experts</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">Angular Material</div>
+                        <div class="skill-item">Bootstrap</div>
+                        <div class="skill-item">Chart.js</div>
+                        <div class="skill-item">CSR</div>
+                        <div class="skill-item">CSS</div>
+                        <div class="skill-item">Data Structures</div>
+                        <div class="skill-item">GitHub</div>
+                        <div class="skill-item">HTML</div>
+                        <div class="skill-item">JavaScript</div>
+                        <div class="skill-item">JWT</div>
+                        <div class="skill-item">MongoDB</div>
+                        <div class="skill-item">Modular</div>
+                        <div class="skill-item">OOP</div>
+                        <div class="skill-item">React</div>
+                        <div class="skill-item">SQL</div>
+                        <div class="skill-item">TypeScript</div>
+                        <div class="skill-item">Node.js</div>
+                        <div class="skill-item">Angular</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
